@@ -470,6 +470,20 @@ func (s *Service) EnvelopeStatus(ctx context.Context, envId string) (res *Envelo
 	return ret, c.Do(ctx, s)
 }
 
+// EnvelopeUpdate updates and returns returns the envelope.
+//
+// RestApi Documentation
+// https://developers.docusign.com/esign-rest-api/reference/Envelopes/Envelopes/update
+func (s *Service) EnvelopeUpdate(ctx context.Context, envId string, changes *EnvelopeUpdate) (*EnvelopeList, error) {
+	var ret *EnvelopeList
+	return ret, (&Call{
+		Method:  "PUT",
+		URL:     &url.URL{Path: "envelopes/" + envId},
+		Payload: changes,
+		Result:  &ret,
+	}).Do(ctx, s)
+}
+
 // EnvelopeStatusMulti returns the status for the requested envelopes.
 //
 // RestApi Documentation

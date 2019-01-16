@@ -179,6 +179,12 @@ type Envelope struct {
 	CompositeTemplates      []CompositeTemplate `json:"compositeTemplates,omitempty"`
 }
 
+// https://developers.docusign.com/esign-rest-api/reference/Envelopes/Envelopes/update
+type EnvelopeUpdate struct {
+	Status string `json:"status,omitempty"`
+	// most of these are missing, I just need status for now
+}
+
 type CustomFieldList struct {
 	ListCustomFields []ListCustomField `json:"listCustomFields,omitempty"`
 	TextCustomFields []CustomField     `json:"textCustomFields,omitempty"`
