@@ -402,6 +402,22 @@ type Template struct {
 	EventNotification          *EventNotification `json:"eventNotification,omitempty"`
 }
 
+type TemplateResponse struct {
+	TemplateId    string         `json:"templateId,omitempty"`
+	Name          string         `json:"name,omitempty"`
+	DocumentId    string         `json:"documentId,omitempty"`
+	DocumentName  string         `json:"documentName,omitempty"`
+	Applied       string         `json:"applied,omitempty"`
+	TemplateMatch *TemplateMatch `json:"templateMatch,omitempty"`
+	Uri           string         `json:"uri,omitempty"`
+}
+
+type TemplateMatch struct {
+	MatchPercentage   string `json:"matchPercentage,omitempty"`
+	DocumentStartPage string `json:"documentStartPage,omitempty"`
+	DocumentEndPage   string `json:"documentEndPage,omitempty"`
+}
+
 type TemplateDefinition struct {
 	TemplateId     string             `json:"templateId,omitempty"`
 	Name           string             `json:"name,omitempty"`

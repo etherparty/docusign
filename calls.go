@@ -402,6 +402,20 @@ func (s *Service) EnvelopeCreate(ctx context.Context, env *Envelope, files ...*U
 
 }
 
+// TemplateCreate creates a template.
+//
+func (s *Service) TemplateCreate(ctx context.Context, env *Template, files ...*UploadFile) (*TemplateResponse, error) {
+	result := &TemplateResponse{}
+	return result, (&Call{
+		Method:  "POST",
+		URL:     &url.URL{Path: "templates"},
+		Payload: env,
+		Result:  &result,
+		Files:   files,
+	}).Do(ctx, s)
+
+}
+
 // EnvelopeStatusChanges returns envelope status changes for all envelopes. The information returned can be
 // modified by adding query strings to limit the request to check between certain dates and times, or for certain envelopes,
 // or for certain status codes. It is recommended that you use one or more of the query strings in order to limit the size of the response.
