@@ -6,8 +6,17 @@
 package docusign
 
 import (
+	"encoding/xml"
 	"time"
 )
+
+type DocusignCallback struct {
+	XMLName         xml.Name          `xml:"DocuSignEnvelopeInformation"`
+	XMLNamespace    string            `xml:"xmlns,attr"`
+	XMLNamespaceXSD string            `xml:"xmlns xsd,attr"`
+	XMLNamespaceXSI string            `xml:"xmlns xsi,attr"`
+	EnvelopeStatus  EnvelopeStatusXml `xml:"EnvelopeStatus"`
+}
 
 // ReturnUrlType is used to generate url for user signing
 // see PostSenderView, PostRecipientView, PostEditView, PostCorrection
