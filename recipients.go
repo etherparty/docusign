@@ -135,6 +135,8 @@ type Recipient struct {
 	TemplateLocked                        DSBool               `json:"templateLocked,omitempty"`
 	TemplateRequired                      DSBool               `json:"templateRequired,omitempty"`
 	ErrorDetails                          *ResponseError       `json:"errorDetails,omitempty"`
+	RecipientIdGuid                       string               `json:"recipientIdGuid,omitempty"`
+	RecipientSuppliesTabs                 DSBool               `json:"recipientSuppliesTabs,omitempty"`
 }
 
 // EmailRecipient adds email field to base recipient structure
@@ -219,6 +221,11 @@ type Signer struct {
 	DeliveredDateTime string            `json:"deliveredDateTime,omitempty"`
 	SignedDateTime    string            `json:"signedDateTime,omitempty"`
 	OfflineAttributes map[string]string `json:"offlineAttributes,omitempty"`
+	CreationReason    string            `json:"creationReason,omitempty"`
+	Status            string            `json:"status,omitempty"`
+	UserId            string            `json:"userId,omitempty"`
+	DeclinedReason    string            `json:"declinedReason,omitempty"`
+	DeclinedDateTime  string            `json:"declinedDateTime,omitempty"`
 }
 
 // RecipeintUpdateResult is returned via the RecipientsModify call and returns
