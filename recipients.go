@@ -218,14 +218,14 @@ type Signer struct {
 	IsBulkRecipient   string            `json:"isBulkRecipient,omitempty"`
 	BulkRecipientsUri string            `json:"bulkRecipientsUri,omitempty"`
 	DeliveryMethod    string            `json:"deliveryMethod,omitempty"`
-	DeliveredDateTime string            `json:"deliveredDateTime,omitempty"`
-	SignedDateTime    string            `json:"signedDateTime,omitempty"`
+	DeliveredDateTime DSTime            `json:"deliveredDateTime,omitempty"`
+	SignedDateTime    DSTime            `json:"signedDateTime,omitempty"`
 	OfflineAttributes map[string]string `json:"offlineAttributes,omitempty"`
 	CreationReason    string            `json:"creationReason,omitempty"`
 	Status            string            `json:"status,omitempty"`
 	UserId            string            `json:"userId,omitempty"`
 	DeclinedReason    string            `json:"declinedReason,omitempty"`
-	DeclinedDateTime  string            `json:"declinedDateTime,omitempty"`
+	DeclinedDateTime  DSTime            `json:"declinedDateTime,omitempty"`
 }
 
 // RecipeintUpdateResult is returned via the RecipientsModify call and returns
